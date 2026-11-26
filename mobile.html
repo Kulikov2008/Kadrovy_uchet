@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кадровый учёт - Мобильная версия</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }
+        h1 { font-size: 20px; color: #333; text-align: center; }
+        .card { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .name { font-weight: bold; font-size: 16px; color: #0056b3; }
+        .pos { color: #666; font-size: 14px; margin-top: 5px; }
+        .dept { display: inline-block; background: #e2e3e5; padding: 3px 8px; border-radius: 4px; font-size: 12px; margin-top: 8px; }
+        .salary { float: right; font-weight: bold; color: #28a745; }
+    </style>
+</head>
+<body>
+    <h1>Сотрудники</h1>
+    <div id="employee-list"></div>
+
+    <script>
+        // Данные для отображения (имитация запроса к БД)
+        const employees = [
+            { id: 1, name: "Иванов Иван", position: "Программист", dept: "IT-отдел", salary: "85000" },
+            { id: 2, name: "Петрова Анна", position: "Бухгалтер", dept: "Бухгалтерия", salary: "70000" }
+        ];
+
+        const container = document.getElementById('employee-list');
+        employees.forEach(emp => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="salary">${emp.salary} ₽</div>
+                <div class="name">${emp.name}</div>
+                <div class="pos">${emp.position}</div>
+                <div class="dept">${emp.dept}</div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
